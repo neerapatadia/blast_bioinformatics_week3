@@ -1,7 +1,6 @@
 ---
 title: 'BlastBioinformatics_Week3: Sequence Logos'
-author: "Neera Patadia"
-date: "09/02/2022"
+author: "BlastBioinformatics"
 output: github_document
 ---
 
@@ -61,11 +60,68 @@ A big part of bioinformatics is learning how to work with and manipulated our da
 
 To start off, lets load in an R dataset into a data structure called a `dataframe`. In this case, we will be working with the `nums` dataset, which should have download already as a `.tsv` file. As an fyi, a `.tsv` file is a table where every value is separated by a tab space. To load in the file, we will use the `read.table()` command. Notice how we need to assign the file to a variable.
 
-```{r dataframs}
-read.table("nums.txt")
+```{r dataframes}
+nums.df <- read.table("nums.txt")
 ```
 
-Now that we have read in the dataframe, we can 
+Now that we have read in the dataframe, we can use functions in R to analyze it. First lets look at working with specific columns from the matrix. This can be done by saving the columns individually to a variable. Lets' try and save the first column of the dataframe to a variable!
+
+```{r get_col}
+col1 <- nums.df$V1
+col2 <- nums.df$V2
+
+print(col1)
+print(col2)
+```
+Now you try! save columns three and four to separate variables!
+```{r get_col_prac}
+##Write your code here!
+
+```
+
+
+## Making Figures
+
+We can use R to make graphs and figures, such as a scatter plot. This can be done by using the `plot()` command. This command takes in two values (x and y values), and other paramters which change the aesthetics of the graph. Lets' plot column 1 and column 2 from our dataframe!
+
+```{r plotting}
+##Write your code here!
+plot(col1, col2)
+
+##Change colour of the plot
+plot(col1, col2, col = "red")
+
+##plotting a sin curve
+x <- seq(-pi,pi,0.1)
+plot(x, sin(x), col = "purple")
+
+```
+
+Now you try! make a scatter plot using the column 3 and 4 variables you made earlier! Feel free to change the colour of your graph!
+
+```{r plotting_prac}
+##Write your code here!
+
+```
+
+## Loops in R
+When we are programming, sometimes we want to perform the same task over and over again. To do this, we can use something called a `loop`. A `loop` as the name suggests will repeat a chunk of code over an over again. For example, say we want to calculate 2 multiplied by the numbers 1 to 10. We can of course manually type out the computation, or we can simply make a loop!
+
+```{r loops}
+for (i in 1:10){
+  mult_by_2 = i*2
+  print(mult_by_2)
+}
+```
+Now you try! Use a loop to calculate multiples of 8 from 1 to 1000!
+```{r loops_pracs}
+##Write your code here!
+```
+
+Now that we've gone through some coding basics, lets move on to the tutorial!
+
+
+### Making the sequence logo
 
 ## Loading In Libraries
 
@@ -89,7 +145,7 @@ library(Biostrings)
 To start off, you will first need to load in your aligned sequence data into the program. This can be done by using the `read.fasta()` command. This command is quite similar to the `read.table()` function we were using earlier in the tutorial, but is intended to be used specifically when working with data in fasta files.
 
 ```{r load_seq}
-sequences <- read.fasta("/Users/neera/Downloads/sequence_aln.fasta", seqtype = "DNA")
+sequences <- read.fasta("sequence_aln.fasta", seqtype = "DNA")
 ```
 explore the sequences that were just loaded in! 
 

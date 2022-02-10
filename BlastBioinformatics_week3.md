@@ -1,7 +1,6 @@
 BlastBioinformatics\_Week3: Sequence Logos
 ================
-Neera Patadia
-09/02/2022
+BlastBioinformatics
 
 ## Getting Familiar With R
 
@@ -83,15 +82,109 @@ in the file, we will use the `read.table()` command. Notice how we need
 to assign the file to a variable.
 
 ``` r
-read.table("nums.txt")
+nums.df <- read.table("nums.txt")
 ```
 
-    ##           V1        V2         V3         V4
-    ## 1  0.2073312 1.0852794  1.1890723 0.08330438
-    ## 2 -1.1106609 0.2563358  0.7238336 1.31054725
-    ## 3  1.2647419 0.2798932 -0.4442040 0.23810636
+Now that we have read in the dataframe, we can use functions in R to
+analyze it. First lets look at working with specific columns from the
+matrix. This can be done by saving the columns individually to a
+variable. Lets’ try and save the first column of the dataframe to a
+variable\!
 
-Now that we have read in the dataframe, we can
+``` r
+col1 <- nums.df$V1
+col2 <- nums.df$V2
+
+print(col1)
+```
+
+    ## [1] -0.1793691  1.2758723 -0.3014299  1.5222963 -1.2364287 -0.4430348
+
+``` r
+print(col2)
+```
+
+    ## [1] -0.22576308 -1.38574232 -0.83057417 -0.69104969 -1.47474427 -0.06447203
+
+Now you try\! save columns three and four to separate variables\!
+
+``` r
+##Write your code here!
+```
+
+## Making Figures
+
+We can use R to make graphs and figures, such as a scatter plot. This
+can be done by using the `plot()` command. This command takes in two
+values (x and y values), and other paramters which change the aesthetics
+of the graph. Lets’ plot column 1 and column 2 from our dataframe\!
+
+``` r
+##Write your code here!
+plot(col1, col2)
+```
+
+![](BlastBioinformatics_week3_files/figure-gfm/plotting-1.png)<!-- -->
+
+``` r
+##Change colour of the plot
+plot(col1, col2, col = "red")
+```
+
+![](BlastBioinformatics_week3_files/figure-gfm/plotting-2.png)<!-- -->
+
+``` r
+##plotting a sin curve
+x <- seq(-pi,pi,0.1)
+plot(x, sin(x), col = "purple")
+```
+
+![](BlastBioinformatics_week3_files/figure-gfm/plotting-3.png)<!-- -->
+
+Now you try\! make a scatter plot using the column 3 and 4 variables you
+made earlier\! Feel free to change the colour of your graph\!
+
+``` r
+##Write your code here!
+```
+
+## Loops in R
+
+When we are programming, sometimes we want to perform the same task over
+and over again. To do this, we can use something called a `loop`. A
+`loop` as the name suggests will repeat a chunk of code over an over
+again. For example, say we want to calculate 2 multiplied by the numbers
+1 to 10. We can of course manually type out the computation, or we can
+simply make a loop\!
+
+``` r
+for (i in 1:10){
+  mult_by_2 = i*2
+  print(mult_by_2)
+}
+```
+
+    ## [1] 2
+    ## [1] 4
+    ## [1] 6
+    ## [1] 8
+    ## [1] 10
+    ## [1] 12
+    ## [1] 14
+    ## [1] 16
+    ## [1] 18
+    ## [1] 20
+
+Now you try\! Use a loop to calculate multiples of 8 from 1 to 1000\!
+
+``` r
+##Write your code here!
+```
+
+Now that we’ve gone through some coding basics, lets move on to the
+tutorial\!
+
+### Making the sequence logo
 
 ## Loading In Libraries
 
@@ -174,7 +267,7 @@ using earlier in the tutorial, but is intended to be used specifically
 when working with data in fasta files.
 
 ``` r
-sequences <- read.fasta("/Users/neera/Downloads/sequence_aln.fasta", seqtype = "DNA")
+sequences <- read.fasta("sequence_aln.fasta", seqtype = "DNA")
 ```
 
 explore the sequences that were just loaded in\!
