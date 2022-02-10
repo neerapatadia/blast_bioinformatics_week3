@@ -80,7 +80,7 @@ Now you try! save columns three and four to separate variables!
 ```
 
 
-## Making Figures
+### Making Figures
 
 We can use R to make graphs and figures, such as a scatter plot. This can be done by using the `plot()` command. This command takes in two values (x and y values), and other paramters which change the aesthetics of the graph. Lets' plot column 1 and column 2 from our dataframe!
 
@@ -104,7 +104,7 @@ Now you try! make a scatter plot using the column 3 and 4 variables you made ear
 
 ```
 
-## Loops in R
+### Loops in R
 When we are programming, sometimes we want to perform the same task over and over again. To do this, we can use something called a `loop`. A `loop` as the name suggests will repeat a chunk of code over an over again. For example, say we want to calculate 2 multiplied by the numbers 1 to 10. We can of course manually type out the computation, or we can simply make a loop!
 
 ```{r loops}
@@ -121,9 +121,9 @@ Now you try! Use a loop to calculate multiples of 8 from 1 to 1000!
 Now that we've gone through some coding basics, lets move on to the tutorial!
 
 
-### Making the sequence logo
+## Making the sequence logo
 
-## Loading In Libraries
+### Loading In Libraries
 
 This week, we will be working with the `ggSeqLogo` package, along with a few others. If you have not installed the packages listed below before, remove the `#` when running the code block to install them. A package can be though of as a bit of code written by another person, we can use for our own analyses. To use packages in R, we need to first install them. Once they are installed, they can be loaded into the program using the `library` function.
 
@@ -140,7 +140,7 @@ library(seqinr)
 library(Biostrings)
 ```
 
-## Loading in your data
+### Loading in your data
 
 To start off, you will first need to load in your aligned sequence data into the program. This can be done by using the `read.fasta()` command. This command is quite similar to the `read.table()` function we were using earlier in the tutorial, but is intended to be used specifically when working with data in fasta files.
 
@@ -157,7 +157,7 @@ Now you try! Load in your aligned sequence file! Remember to assign it to a vari
 
 
 
-## Formatting Your Data
+### Formatting Your Data
 
 Now that we have loaded in our aligned fasta sequences, we need to format them in a way such that the sequences can be interpreted by the functions we are using to make our sequence logo. To do this, we have to use a loop to iterate through all the sequences in our file, and pull out the sequences themselves, as well as the basepair region we are interested in using to make our sequence logo. In this context, we are selecting the 450 to 470 basepair region.
 
@@ -182,7 +182,7 @@ for (i in 1:length(sequences)){
 }
 ```
 
-## Building the Position Weight Matrix
+### Building the Position Weight Matrix
 Now that we have our sequences properly formatted, we can go onto making our Position Weight Matrix! A position weight matrix is a table that describes the frequency of nucleotides ( or ammino acids if we are working with proteins). It is structured so the rows represent the nucleotides we are calculating the frequency for and the columns represent the positions of those nucleotides in the sequence region of interest. While there are a few ways to perform the calculating of the PWM values, in this tutorial, we will be using the `consensusMatrix()` function.
 ```{r build_pwm}
 all_sequences <- unlist(all_sequences, use.names=FALSE)
@@ -199,7 +199,7 @@ Now try and build a PWM using your own data!
 
 
 
-## Making the Sequence Logo 
+### Making the Sequence Logo 
 Now that you have your PWM we can use the `seqlogo()` to make your sequence logo. In the `seqlogo()` function, you will need to pass in your position weight matrix, as well as the type of data you are working with (DNA, RNA, amino acids)
 
 ```{r make_seq_logo, echo=FALSE}

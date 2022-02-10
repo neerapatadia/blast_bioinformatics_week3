@@ -112,7 +112,7 @@ Now you try\! save columns three and four to separate variables\!
 ##Write your code here!
 ```
 
-## Making Figures
+### Making Figures
 
 We can use R to make graphs and figures, such as a scatter plot. This
 can be done by using the `plot()` command. This command takes in two
@@ -148,7 +148,7 @@ made earlier\! Feel free to change the colour of your graph\!
 ##Write your code here!
 ```
 
-## Loops in R
+### Loops in R
 
 When we are programming, sometimes we want to perform the same task over
 and over again. To do this, we can use something called a `loop`. A
@@ -184,9 +184,9 @@ Now you try\! Use a loop to calculate multiples of 8 from 1 to 1000\!
 Now that we’ve gone through some coding basics, lets move on to the
 tutorial\!
 
-### Making the sequence logo
+## Making the sequence logo
 
-## Loading In Libraries
+### Loading In Libraries
 
 This week, we will be working with the `ggSeqLogo` package, along with a
 few others. If you have not installed the packages listed below before,
@@ -258,7 +258,7 @@ the `library` function.
     ## 
     ##     strsplit
 
-## Loading in your data
+### Loading in your data
 
 To start off, you will first need to load in your aligned sequence data
 into the program. This can be done by using the `read.fasta()` command.
@@ -279,7 +279,7 @@ to a variable\!
 ##Write your code here!
 ```
 
-## Formatting Your Data
+### Formatting Your Data
 
 Now that we have loaded in our aligned fasta sequences, we need to
 format them in a way such that the sequences can be interpreted by the
@@ -313,7 +313,7 @@ for (i in 1:length(sequences)){
 }
 ```
 
-## Building the Position Weight Matrix
+### Building the Position Weight Matrix
 
 Now that we have our sequences properly formatted, we can go onto making
 our Position Weight Matrix\! A position weight matrix is a table that
@@ -340,7 +340,7 @@ Now try and build a PWM using your own data\!
 ##Write your code here!
 ```
 
-## Making the Sequence Logo
+### Making the Sequence Logo
 
 Now that you have your PWM we can use the `seqlogo()` to make your
 sequence logo. In the `seqlogo()` function, you will need to pass in
